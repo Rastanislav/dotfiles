@@ -33,5 +33,5 @@ done
 
 # Clone my oh-my-zsh repository from GitHub only if it isn't already present
 if [[ ! -d $dir/dotfiles/ ]]; then
-    git clone http://github.com/michaeljsmalley/oh-my-zsh.git
+    git clone http://github.com/Rastanislav/dotfiles.git
 fi
