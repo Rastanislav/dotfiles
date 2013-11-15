@@ -75,7 +75,7 @@ set ai
 "1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
+"show if file was externally edited
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
@@ -121,6 +121,7 @@ imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>< <><ESC>i
+imap <leader>{ {}<ESC>i
 
 "Auto-reload .vimrc
 "
@@ -145,8 +146,9 @@ set nocompatible
 
 "F1-F12 mappings
 "
+nmap <F2> :TagbarToggle<CR> 
 map <F3> :NERDTreeToggle <CR><Esc>
-imap <F3> :NERDTreeToggle <CR><Esc>
+imap <F3> <Esc> :NERDTreeToggle <CR>i<Right>
 map <F4> :set cursorcolumn! <CR><Esc>
 map <F5> :set cursorline! <CR><Esc>
 map <F6> :set spell! <CR><Esc>
@@ -154,8 +156,6 @@ map <F7> :FufFile <CR><Esc>
 map <F8> :set hlsearch! <CR><Esc>
 map <F9> :AutoComplPopDisable <CR><Esc>
 imap <F9> <Esc>:AutoComplPopDisable <CR><Esc>i<Right>
-
-
 "nnoremap <F9> :call ToggleAutoCompl()<cr>
 "
 "function" FoldColumnToggle()
@@ -167,7 +167,6 @@ imap <F9> <Esc>:AutoComplPopDisable <CR><Esc>i<Right>
 "endfunction
 
 " Airline
-
 """""""""""""
 "map <C-Enter> :set hlsearch! <CR><Esc>
 
@@ -189,3 +188,11 @@ let g:airline_paste_symbol = 'ρ'
 
 
 " NERD_tree
+"
+set autoread
+au CursorHold * checktime
+
+" Visual mode
+"
+vnoremap <C-c> "+y
+vnoremap <C-v> "+p
