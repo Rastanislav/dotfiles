@@ -1,5 +1,17 @@
-" Misc
+"" Misc
 set nu
+command Q q
+nnoremap / mq/
+nnoremap ? mq?
+
+
+" rebuild the tag file in the directory of the current source file
+nmap ,t :!(cd %:p:h;ctags *.[ch])&
+
+
+" robot framework syntaxis:
+" # -*- coding: robot -*-
+" g:robot_syntax_for_txt
 
 " Case insensitive search
 set ic
@@ -9,7 +21,6 @@ set ic
 " PATHOGEN
 "
 execute pathogen#infect()
-
 "generate helptags for everything in ‘runtimepath’
 call pathogen#helptags()
 filetype plugin indent on
